@@ -1,4 +1,4 @@
-package lottery.worlds.blocks;
+package lottery.copy.world.blocks;
 
 import mindustry.type.Category;
 import mindustry.type.Item;

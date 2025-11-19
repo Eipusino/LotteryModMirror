@@ -1,8 +1,8 @@
-package lottery.contents;
+package lottery.copy.content;
 
-import lottery.ui.BeforeLottery;
-import lottery.ui.LotteryRes;
-import lottery.ui.MdfUI;
+import lottery.copy.ui.BeforeLottery;
+import lottery.copy.ui.LotteryRes;
+import lottery.copy.ui.MdfUI;
 
 public class LUI {
 	public static MdfUI mdfUI;

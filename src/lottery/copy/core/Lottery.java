@@ -1,4 +1,4 @@
-package lottery;
+package lottery.copy.core;
 
 import arc.Core;
 import arc.graphics.Color;
@@ -7,11 +7,11 @@ import arc.scene.ui.Image;
 import arc.struct.IntSeq;
 import arc.struct.Seq;
 import arc.util.Strings;
-import lottery.contents.LBlocks;
-import lottery.contents.LUI;
-import lottery.contents.PopAll;
-import lottery.net.LCall;
-import lottery.ui.LotteryRes;
+import lottery.copy.content.LBlocks;
+import lottery.copy.content.LUI;
+import lottery.copy.content.PopAll;
+import lottery.copy.net.LCall;
+import lottery.copy.ui.LotteryRes;
 import mindustry.Vars;
 import mindustry.ctype.UnlockableContent;
 import mindustry.gen.Icon;
@@ -20,12 +20,10 @@ import mindustry.mod.Mods;
 import mindustry.ui.Styles;
 import mindustry.ui.dialogs.BaseDialog;
 
-import static arc.Core.settings;
-import static mindustry.Vars.ui;
-
 public class Lottery extends Mod {
-	public static final String ModName = "lottery";
-	public static boolean onlyPlugIn = Core.settings.getBool("lottery-plug-in-mode");
+	public static final String MOD_NAME = "lottery-copy";
+
+	public static boolean onlyPlugIn;
 
 	private static final Seq<UnlockableContent> us = new Seq<>(UnlockableContent.class);
 	private static final Seq<Color> uc = new Seq<>(Color.class);
@@ -42,18 +40,22 @@ public class Lottery extends Mod {
 			new Color(0xffb0b0)
 	};
 
-	public Lottery() {
-	}
+	public Lottery() {}
 
 	@Override
 	public void init() {
-		settings.defaults("lottery-plug-in-mode", false);
-		Vars.mods.locateMod(ModName).meta.hidden = onlyPlugIn;
+		onlyPlugIn = Core.settings.getBool("lottery-copy-plug-in-mode");
+		Core.settings.defaults("lottery-copy-plug-in-mode", false);
 
-		if (onlyPlugIn) {
-			Mods.LoadedMod mod = Vars.mods.locateMod(ModName);
-			mod.meta.displayName = mod.meta.displayName + "-Plug-In";
-			mod.meta.version = Vars.mods.locateMod(ModName).meta.version + "-plug-in";
+		Mods.LoadedMod mod = Vars.mods.locateMod(MOD_NAME);
+
+		if (mod != null) {
+			mod.meta.hidden = onlyPlugIn;
+
+			if (onlyPlugIn) {
+				mod.meta.displayName = mod.meta.displayName + "-Plug-In";
+				mod.meta.version = Vars.mods.locateMod(MOD_NAME).meta.version + "-plug-in";
+			}
 		}
 
 		if (!onlyPlugIn) {
@@ -64,19 +66,19 @@ public class Lottery extends Mod {
 		}
 		PopAll.init();
 
-		if (ui != null) {
-			ui.settings.addCategory(Core.bundle.get("lottery-settings"), "lottery-bag", settingsTable -> {
-				settingsTable.checkPref("lottery-plug-in-mode", false);
+		if (Vars.ui != null) {
+			Vars.ui.settings.addCategory(Core.bundle.get("lottery-copy-settings"), "lottery-copy-bag", settingsTable -> {
+				settingsTable.checkPref("lottery-copy-plug-in-mode", false);
 
 				settingsTable.row();
-				settingsTable.add("[accent]-----------------------[]" + Core.bundle.get("lottery-settings") + "[accent]-----------------------[]");
+				settingsTable.add("[accent]-----------------------[]" + Core.bundle.get("lottery-copy-settings") + "[accent]-----------------------[]");
 				settingsTable.row();
-				settingsTable.button(Core.bundle.get("stat.lottery.single-draws"), Styles.defaultt, Lottery::oneLottery).margin(14).width(200f).pad(6);
+				settingsTable.button(Core.bundle.get("stat.lottery-copy.single-draws"), Styles.defaultt, Lottery::oneLottery).margin(14).width(200f).pad(6);
 				settingsTable.row();
-				settingsTable.button(Core.bundle.get("stat.lottery.ten-draws"), Styles.defaultt, Lottery::tenLottery).margin(14).width(200f).pad(6);
+				settingsTable.button(Core.bundle.get("stat.lottery-copy.ten-draws"), Styles.defaultt, Lottery::tenLottery).margin(14).width(200f).pad(6);
 				settingsTable.row();
 				settingsTable.button(b -> b.add(new Image(Icon.file)),
-						Styles.cleari, Lottery::showPop).margin(6).pad(6).tooltip(Core.bundle.get("stat.lottery.p-p"));
+						Styles.cleari, Lottery::showPop).margin(6).pad(6).tooltip(Core.bundle.get("stat.lottery-copy.p-p"));
 				settingsTable.row();
 
 				if (onlyPlugIn) return;
@@ -100,7 +102,7 @@ public class Lottery extends Mod {
 		BaseDialog dialog = new BaseDialog("All! All! All!") {{
 			cont.pane(table -> {
 				table.row();
-				table.table(img -> img.add(Core.bundle.get("stat.lottery.p-p"))).pad(20);
+				table.table(img -> img.add(Core.bundle.get("stat.lottery-copy.p-p"))).pad(20);
 				table.row();
 				for (int i = 0; i < pop.length; i++) {
 					table.row();

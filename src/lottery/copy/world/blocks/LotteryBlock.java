@@ -1,4 +1,4 @@
-package lottery.worlds.blocks;
+package lottery.copy.world.blocks;
 
 import arc.Core;
 import arc.graphics.Color;
@@ -9,9 +9,9 @@ import arc.struct.IntMap;
 import arc.struct.IntSeq;
 import arc.struct.Seq;
 import arc.util.Strings;
-import lottery.contents.PopAll;
-import lottery.net.LCall;
-import lottery.ui.ItemDisplay;
+import lottery.copy.content.PopAll;
+import lottery.copy.net.LCall;
+import lottery.copy.ui.ItemDisplay;
 import mindustry.Vars;
 import mindustry.content.Items;
 import mindustry.ctype.UnlockableContent;
@@ -24,9 +24,9 @@ import mindustry.ui.Styles;
 import mindustry.world.Block;
 import mindustry.world.meta.Stat;
 
-import static lottery.contents.LUI.beforeLottery;
-import static lottery.contents.PopAll.canRelease;
-import static lottery.contents.PopAll.popRandom;
+import static lottery.copy.content.LUI.beforeLottery;
+import static lottery.copy.content.PopAll.canRelease;
+import static lottery.copy.content.PopAll.popRandom;
 import static mindustry.Vars.net;
 import static mindustry.Vars.state;
 

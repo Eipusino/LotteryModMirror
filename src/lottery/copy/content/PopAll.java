@@ -1,4 +1,4 @@
-package lottery.contents;
+package lottery.copy.content;
 
 import arc.math.Mathf;
 import arc.struct.IntMap;

@@ -1,4 +1,4 @@
-package lottery.net;
+package lottery.copy.net;
 
 import mindustry.Vars;
 import mindustry.gen.Building;

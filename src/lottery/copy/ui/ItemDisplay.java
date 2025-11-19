@@ -1,4 +1,4 @@
-package lottery.ui;
+package lottery.copy.ui;
 
 import arc.scene.ui.layout.Table;
 import arc.util.Strings;

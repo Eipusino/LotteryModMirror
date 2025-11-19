@@ -1,9 +1,9 @@
-package lottery.contents;
+package lottery.copy.content;
 
 import arc.graphics.Color;
 import arc.struct.Seq;
-import lottery.worlds.blocks.LotteryBlock;
-import lottery.worlds.blocks.ResBlock;
+import lottery.copy.world.blocks.LotteryBlock;
+import lottery.copy.world.blocks.ResBlock;
 import mindustry.Vars;
 import mindustry.content.Items;
 import mindustry.type.Category;

@@ -1,7 +1,7 @@
-package lottery.ui;
+package lottery.copy.ui;
 
 import arc.scene.ui.Image;
-import lottery.worlds.blocks.LotteryBlock;
+import lottery.copy.world.blocks.LotteryBlock;
 import mindustry.Vars;
 import mindustry.gen.Icon;
 import mindustry.ui.dialogs.BaseDialog;

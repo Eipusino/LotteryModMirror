@@ -1,4 +1,4 @@
-package lottery.net;
+package lottery.copy.net;
 
 import arc.util.io.Reads;
 import arc.util.io.Writes;

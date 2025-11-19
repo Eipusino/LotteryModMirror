@@ -1,4 +1,4 @@
-package lottery.contents;
+package lottery.copy.content;
 
 import arc.Core;
 import arc.graphics.g2d.Draw;

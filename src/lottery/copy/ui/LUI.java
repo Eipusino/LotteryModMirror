@@ -1,4 +1,4 @@
-package lottery.ui;
+package lottery.copy.ui;
 
 import arc.func.Boolp;
 import arc.func.Floatc;

@@ -1,4 +1,4 @@
-package lottery.ui;
+package lottery.copy.ui;
 
 import arc.graphics.g2d.TextureRegion;
 import arc.scene.ui.Image;

@@ -1,4 +1,4 @@
-package lottery.ui;
+package lottery.copy.ui;
 
 import arc.Core;
 import arc.graphics.Color;
@@ -9,17 +9,17 @@ import arc.scene.ui.Slider;
 import arc.struct.IntSeq;
 import arc.struct.Seq;
 import arc.util.Align;
-import lottery.contents.LFx;
-import lottery.worlds.blocks.LotteryBlock.LotteryBuild;
+import lottery.copy.content.LFx;
+import lottery.copy.world.blocks.LotteryBlock.LotteryBuild;
 import mindustry.ctype.UnlockableContent;
 import mindustry.gen.Icon;
+import mindustry.gen.Tex;
 import mindustry.ui.Styles;
 import mindustry.ui.dialogs.BaseDialog;
 import universecore.ui.elements.BloomGroup;
 import universecore.ui.elements.SceneEffect;
 
-import static lottery.contents.LUI.lotteryRes;
-import static mindustry.gen.Tex.whiteui;
+import static lottery.copy.content.LUI.lotteryRes;
 
 public class BeforeLottery extends BaseDialog {
     private final Color tc = new Color();
@@ -69,7 +69,7 @@ public class BeforeLottery extends BaseDialog {
                             lotteryRes.show(us, uc, tier, owner);
                         });
                     }
-                    sld.background(((TextureRegionDrawable) whiteui).tint(tc.set(c).a(pull/20f)));
+                    sld.background(((TextureRegionDrawable) Tex.whiteui).tint(tc.set(c).a(pull/20f)));
                     sld.setWidth(Math.min(Core.graphics.getWidth() / 1.2f, 460f) * pull/135f);
                 });
             }).height(slider.getHeight() + 4f).padTop(4f).left();

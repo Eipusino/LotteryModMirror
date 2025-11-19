@@ -1,4 +1,4 @@
-package lottery.ui;
+package lottery.copy.ui;
 
 import arc.Core;
 import arc.graphics.Color;
@@ -14,9 +14,9 @@ import arc.struct.ObjectMap;
 import arc.struct.Seq;
 import arc.util.Align;
 import arc.util.Time;
-import lottery.contents.LFx;
-import lottery.contents.PopAll;
-import lottery.worlds.blocks.LotteryBlock.LotteryBuild;
+import lottery.copy.content.LFx;
+import lottery.copy.content.PopAll;
+import lottery.copy.world.blocks.LotteryBlock.LotteryBuild;
 import mindustry.ctype.UnlockableContent;
 import mindustry.gen.Icon;
 import mindustry.type.Item;
